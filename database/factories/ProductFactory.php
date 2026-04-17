@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Product;
+use App\Models\Category; // 👈 THÊM DÒNG NÀY
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,12 +20,11 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            //
-        'name' => $this->faker->name(),
-        'img' => $this->faker->name(),
-        'desc' => $this->faker->realText(),
-        'price' => $this->faker->numberBetween(100, 1000),
-        'category_id' => \App\Models\Category::factory(),
+            'name' => $this->faker->name(), // có thể đổi thành word()
+            'img' => $this->faker->imageUrl(), // chuẩn hơn
+            'desc' => $this->faker->sentence(),
+            'price' => $this->faker->numberBetween(100, 1000),
+            'category_id' => Category::factory(), // bỏ \App\Models\
         ];
     }
 }

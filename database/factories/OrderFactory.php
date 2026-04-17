@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Order; //  phải có dòng này
+use App\Models\User; // 👈 THÊM DÒNG NÀY
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OrderFactory extends Factory
@@ -16,7 +18,7 @@ class OrderFactory extends Factory
             'desc' => $this->faker->sentence(),
             'price' => $this->faker->numberBetween(100, 1000),
 
-            'user_id' => \App\Models\User::factory(),
+            'user_id' => User::factory(), // gọn hơn
 
             'status' => 0,
 
