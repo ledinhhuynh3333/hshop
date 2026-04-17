@@ -2,21 +2,18 @@
 
 namespace App\Models;
 
-
-use finfo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
 class Category extends Model
 {
-
-    // protected $table = 'danh muc';
-// protected $timestmaps = false;
     use HasFactory;
+
+    protected $fillable = ['name','desc'];
 
     public function products()
     {
         return $this->hasMany(Product::class);
     }
-
 }
