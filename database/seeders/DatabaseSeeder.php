@@ -26,3 +26,10 @@ class DatabaseSeeder extends Seeder
         OrderProduct::factory(10)->create();
     }
 }
+//  route mở form
+//  Route::get('/products/create', function () {
+//     return view('products.create');
+// });
+
+// //  route lưu dữ liệu
+// Route::post('/products', [ProductController::class, 'store'])->name('products.store');
