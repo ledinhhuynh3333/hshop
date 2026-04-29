@@ -9,8 +9,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return 'Page World';
-})->name('home');
+    return 'Page home';
+})->name('home')->middleware('checkAge');
 
 Route::get('/shop', function () {
     return 'Page shop';
@@ -31,7 +31,6 @@ Route::post('/post', function () {
 Route::put('/put', function () {
     return 'Method put';
 });
-
 
 Route::prefix('admin')->group(function () { 
 
@@ -56,21 +55,25 @@ Route::prefix('admin')->group(function () {
 
 
 
+// ================== PRODUCTS ==================
 
-
-
-
-
-
-
-
-
-
-
-//  route mở form
+// mở form
 Route::get('/products/create', function () {
     return view('products.create');
 });
 
-// //  route lưu dữ liệu
+// lưu dữ liệu
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+
+// ================== MIDDLEWARE TEST ==============
+
+// set tuổi
+Route::get('/set-age/{age}', function ($age) {
+    session(['age' => $age]);
+    return "Da set age = $age";
+});
+
+// test middleware
+Route::get('/test', function () {
+    return "Duoc vao!";
+})->middleware('checkage');
