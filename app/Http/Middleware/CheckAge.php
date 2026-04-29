@@ -15,6 +15,11 @@ class CheckAge
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // bai 8 Controller Middleware
+        if ($request->age <= 200) {
+            return redirect('home');
+        }
+
         return $next($request);
     }
 }
