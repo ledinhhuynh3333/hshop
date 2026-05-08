@@ -35,9 +35,9 @@ class UserController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-        return User::create($request->all());
+    {       
+       // return User::create($request->all());  Bài 9: Controller
+       return User::create($request->only(['name','email','password']));  // Bài 10: Controller Request Response
     }
 
     /**
