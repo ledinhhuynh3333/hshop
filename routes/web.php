@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Dom\Comment;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,7 @@ Route::get('/contact', function () {
 });
 
 Route::post('/post', function () {
-    echo 'Method post';
+    echo 'Method post'; 
 });
 
 Route::put('/put', function () {
@@ -43,6 +44,33 @@ Route::prefix('admin')->group(function () {
     });
 
 });
+
+ // Bài 9: Controller
+Route::get('user', [UserController::class, 'index'])->name('user.index');
+
+ // Bài 9: Controller buoi 2  10:00 day du chi chep lai
+ Route::resource('users', UserController::class);
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -76,4 +104,4 @@ Route::get('/set-age/{age}', function ($age) {
 // test middleware
 Route::get('/test', function () {
     return "Duoc vao!";
-})->middleware('checkage');
+})->middleware('checkAge');
