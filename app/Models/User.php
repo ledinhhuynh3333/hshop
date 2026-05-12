@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Models\Order; // ✅ THÊM Ở ĐÂY      them khi hoi chatgpt  ve bai9: Controller cung ko bt de lam gi ?
+
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
