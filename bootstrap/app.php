@@ -11,7 +11,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
 
-                    // Kernel.php   - Bài 8: Controller Middleware
+        // Kernel.php   - Bài 8: Controller Middleware
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'checkAge' => \App\Http\Middleware\CheckAge::class,

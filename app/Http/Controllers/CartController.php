@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view ('product');
+        return view ('cart');
     }
 
     /**
@@ -28,15 +27,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //public function store(Request $request)
-    {
-        Product::create([
-            'name' => $request->name,
-            'img' => $request->img
-        ]);
-
-        return "Thêm thành công";
-    }
+        //
     }
 
     /**
